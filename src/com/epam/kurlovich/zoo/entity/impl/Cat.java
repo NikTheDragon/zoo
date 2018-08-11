@@ -1,4 +1,6 @@
-package com.epam.kurlovich.zoo.entity;
+package com.epam.kurlovich.zoo.entity.impl;
+
+import com.epam.kurlovich.zoo.entity.Animal;
 
 public class Cat implements Animal {
     private String name;

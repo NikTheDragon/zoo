@@ -13,7 +13,7 @@ public class CCLoader extends ClassLoader {
 
     @Override
     public Class loadClass(String name) throws ClassNotFoundException {
-        if (name.startsWith("com.epam.kurlovich.zoo.entity")) {
+        if (name.startsWith("com.epam.kurlovich.zoo.entity.impl")) {
             return getClass(name);
         }
 
@@ -22,9 +22,9 @@ public class CCLoader extends ClassLoader {
 
     private Class getClass(String name) throws ClassNotFoundException {
         String file = name.replace('.', File.separatorChar) + ".class";
-        System.out.println("File name: " + file);
 
         try {
+            Class<?> fc = findLoadedClass(name);
             byte[] byteArr = loadClassData(file);
 
             Class c = defineClass(name, byteArr, 0, byteArr.length);
